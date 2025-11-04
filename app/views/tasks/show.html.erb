@@ -1,2 +1,12 @@
-<p><%= @task[:details] %></p>
+<p>
+  <div>
+  <%= @task[:details] %>
+  </div>
+  <div>
+  completed:
+  <%= check_box_tag :completed, "1", @task.completed, disabled: true %>
+  </div>
+</p>
+<%= link_to "Edit this task", task_edit_path(@task) %>
+<%= link_to "Delete the task", task_path(@task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <%= link_to "Back to my tasks", tasks_path %>
